@@ -1,0 +1,128 @@
+/*Class: CMSC140 
+Instructor: Prof.Abedzadeh
+Project<2>
+Description: Write a program that shows 4 menu options and lets the user to convert from Metric to Imperial system.
+Due Date:Mar 21, 2020
+I pledge that I have completed the programming assignment independently.
+I have not copied the code from a student or any source.
+I have not given my code to any student.
+Print your Name here: Yi Chung
+
+Pseudocode or Algorithm for the program:
+    (be sure to indent items with control structure)
+    (need to match flow chart submitted in documentation)
+    1.Start
+    2. Ask user to enter a country name.
+    3. Display the menu of Converter Toolkit.
+    4.Ask user to enter the number of their choice from the menu,
+    5.If the number choice is 1,
+    6. Ask user to enter the temperature in Celsius.
+    7. Then display the conversion of the temperature to Fahrenheit.
+    8. If the number choice is 2,
+    9. Ask user to enter the distance in Kilometer.
+    10. Then display the conversion of the distance to miles.
+    11. If the number choice is 3,
+    12. Ask the user to enter the weight in kilograms.
+    13. Then display the conversion of the weight in pounds.
+    14. If the number choice is 4,
+    15. The program quits.
+    16. Display the name of the country with “sounds fun!”
+    17. End.
+*/
+
+//Output should look like this:
+//Enter a country name:
+//
+//Converter Toolkit
+//-----------------(17 dashes)
+//1. Temperature Converter //F = C * 1.8 +32
+//2. Distance Converter    //mi = km * 0.6
+//3. Weight Converter      //lb = kg * 2.2
+//4. Quit
+//
+//Enter your choice (1-4):
+//Please enter temperature in Celsius (such as 24 ):  //Please enter distance in Kilometer (such as 18.54 ):
+//It is __ in Fahrenheit.                             // !!! Program does not convert negative distance !!!
+//
+//United Kingdom sounds fun!
+//
+//Thank you for testing my program!
+//PROGRAMMER: Yi Chung
+//CMSC140 Common Project 2
+//Due Date: 3/26/2020
+
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+using namespace std;
+
+int main()
+{
+    int choice; //holds menu choices
+    float c, f, km, mi, kg, lb;
+    string country;
+    
+    cout << "Enter a country name: ";
+    getline(cin, country);
+    
+    cout << "Converter Toolkit\n" //Display menu and get choice
+        << "1. Temperature Converter\n"
+        << "2. Distance Converter\n"
+        << "3. Weight Converter\n"
+        << "4. Quit\n\n"
+        << "Enter your choice (1-4): ";
+    cin >> choice;
+    
+    cout << fixed << showpoint << setprecision(2);
+    
+    switch (choice)
+    {
+        case 1:
+            cout << "Please enter temperature in Celsius (such as 24 ): ";
+            cin >> c;
+            f = c * 1.8 + 32;
+            cout << "It is " << f << " in Fahrenheit";
+            break;
+        case 2:
+            cout << "Please enter distance in kilometer (such as 18.54): ";
+            cin >> km;
+            if (km < 0)
+                cout << "!!! Program does not convert negatice distance !!!";
+            else
+            {
+                mi = km * 0.6;
+                cout << "It is " << fixed << setprecision(2) << mi << " in Miles.";
+            }
+            break;
+        case 3:
+            cout << "Please enter weight in kilogram (such as 28.3): ";
+            cin >> kg;
+            if (kg < 0)
+                cout << " !!! Program does not convert negative weight !!!";
+            else
+            {
+                lb = kg *2.2;
+                cout << "It is " << fixed << setprecision(1) << lb << " in Pounds";
+                
+            }
+            break;
+        case 4:
+            cout << country << " sounds fun!\n";
+            cout << "Thank you for testing my program!\n";
+            cout << "PROGRAMMER: Yi Chung\n";
+            cout << "CMSC140 Project 2\n";
+            cout << "Due Date: 3/21/2020\n";
+    }
+    
+    cout << "\n" << country << " sounds fun!\n";
+    cout << "Thank you for testing my program!\n\n";
+    cout << "PROGRAMMER: Yi Chung\n";
+    cout << "CMSC140 Project 2\n";
+    cout << "Due Date: 3/21/2020\n";
+    
+    
+    return 0;
+}
+
+
+
